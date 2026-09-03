@@ -1,4 +1,4 @@
-# No-Code Data Cleaning & EDA App
+# Data Cleaning & EDA App
 
 ## Run (locally, without Docker)
 
