@@ -1,34 +1,42 @@
 # No-Code Data Cleaning & EDA App
 
-## Εκτέλεση (τοπικά, χωρίς Docker)
+## Run (locally, without Docker)
+
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
-Θα ανοίξει στο browser στο `http://localhost:8501`.
 
-## Εκτέλεση με Docker
+It will open in the browser at `http://localhost:8501`.
+
+## Run with Docker
+
 ```bash
 docker compose up --build
 ```
-ή χωρίς compose:
+
+or without compose:
+
 ```bash
 docker build -t nocode-eda-app .
 docker run -p 8501:8501 nocode-eda-app
 ```
-Άνοιξε το browser στο `http://localhost:8501`.
 
-## Τι κάνει
-- **Upload**: .csv ή .xlsx από το sidebar.
-- **Data Cleaning tab**: διαγραφή διπλότυπων, διαχείριση κενών (drop/mean/median/mode/σταθερή τιμή), one-hot / label encoding, διαγραφή στηλών, μετατροπή τύπου δεδομένων.
-- **EDA tab**: `describe()`, γράφημα κενών τιμών, correlation heatmap, scatter/bar/histogram/box plots με επιλογή στηλών από dropdown.
-- **Export tab**: κατέβασμα του καθαρισμένου dataset σε CSV ή Excel.
+Open the browser to `http://localhost:8501`.
 
-Το DataFrame κρατιέται στο `st.session_state`, ώστε οι αλλαγές να παραμένουν
-ανάμεσα σε clicks (το Streamlit ξανατρέχει όλο το script σε κάθε interaction).
+## What does it do?
 
-## Πιθανές επεκτάσεις
-- Outlier detection (IQR / z-score) με κουμπί αφαίρεσης.
-- Undo/redo χρησιμοποιώντας το `history` που ήδη κρατιέται.
-- Auto-profiling με `ydata-profiling` για πιο πλήρες EDA report.
-- Deploy σε Streamlit Community Cloud για δωρεάν hosting.
+- **Upload**: .csv or .xlsx from the sidebar.
+- **Data Cleaning tab**: delete duplicates, manage gaps (drop/mean/median/mode/constant value), one-hot / label encoding, delete columns, data type conversion.
+- **EDA tab**: `describe()`, graph of empty values, correlation heatmap, scatter/bar/histogram/box plots with column selection from dropdown.
+- **Export tab**: download the cleaned dataset to CSV or Excel.
+
+The DataFrame is held in `st.session_state` so that changes persist
+between clicks (Streamlit reruns the entire script on each interaction).
+
+## Possible extensions
+
+- Outlier detection (IQR / z-score) with remove button.
+- Undo/redo using `history` already held.
+- Auto-profiling with `ydata-profiling` for a more complete EDA report.
+- Deploy to Streamlit Community Cloud for free hosting.
