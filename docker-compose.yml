@@ -1,0 +1,12 @@
+services:
+  nocode-eda-app:
+    build: .
+    image: nocode-eda-app:latest
+    container_name: nocode-eda-app
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    # Προαιρετικό: mount ενός φακέλου για να μπορείς να ανεβάζεις/κατεβάζεις
+    # αρχεία απευθείας από το filesystem σου αντί μόνο μέσω του browser upload.
+    # volumes:
+    #   - ./data:/app/data
